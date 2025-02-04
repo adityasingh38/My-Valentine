@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Valentine</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ffcccc, #ffe6e6);
+            color: #b30000;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 40px;
+            font-weight: bold;
+            color: #b30000;
+        }
+        .gallery img {
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease-in-out;
+        }
+        .message {
+            font-size: 24px;
+            margin-top: 40px;
+            opacity: 0;
+            font-style: italic;
+            transition: opacity 2s ease-in-out;
+        }
+        .valentine-btn, .no-thank-you-btn {
+            background: #ff4d4d;
+            color: white;
+            padding: 15px 25px;
+            font-size: 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            opacity: 0;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        .valentine-btn:hover, .no-thank-you-btn:hover {
+            background: #b30000;
+            transform: scale(1.1);
+        }
+        .show {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        .hidden-message, .hidden-no-thank-you-message {
+            display: none;
+            font-size: 22px;
+            color: #b30000;
+            margin-top: 20px;
+            font-weight: bold;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>For My Love, Meri Jaan, Meri chhotu si baby ❤️</h1>
+        <div class="gallery">
+            <img src="https://i.postimg.cc/6q3YbbG0/2cdbfbe5-8977-4626-b6af-71a4cd599697.jpg" alt="Image 1" class="fade-in">
+            <img src="https://i.postimg.cc/ydnLPCWx/39950a7a-5fef-494e-8301-28ff4e293990.jpg" alt="Image 2" class="fade-in">
+            <img src="https://i.postimg.cc/RFvPKZS2/578be8cc-f8f7-4ae1-8910-eb080b761942.jpg" alt="Image 3" class="fade-in">
+        </div>
+        <p class="message">You've been waiting for this for so long. And I'm finally doing it, or am I? So where do i start? I know that lately we've been fighting a lot, and arguing but baby, you are the only thing that matters to me. You are the only thing that i need. We've gone through so much together, I know we're gonna make it, we'll be successful and we're gonna fucking marry the fuck out of each other. I know you've heard it so many times, but baby I LOVE YOU SO FUCKING MUCH! You're such a cutie, such a princess, i never wanna see you cry yet I'm the one who makes you cry and I'm genuinenly sorry. You know when people say, "The future is in your hands"? They say it as a metaphor, but it's very literal every time i get to hold you in my arms. You're the most precious to me. I'll forever be jealous of the sunlight that kisses your face in the morning. I'll forever be jealous of the water droplets that get to touch your skin when it's raining. I'll forever be grateful for the way you love me, for the way you scold me, for the way you hold me and for the way you've moulded me into being the perfect boyfriend you want. I know I'm nowhere near being perfect but for you I will be, trust the process.  
+          So for the moment you've been waiting for, this Valentine’s Day, and for the rest of our fucking lives, will you be mine?
+        If you say yes, tap on the button below. If not tap on the other button. 😔</p>
+        <button class="valentine-btn" onclick="showSurprise()">Yes, of course! 💖</button>
+        <button class="no-thank-you-btn" onclick="showNoThankYouMessage()">EW NO! 😔</button>
+        <p id="hidden-message" class="hidden-message">Yayayayayayayayyayayay! I KNEW YOU'D SAY YES! Can’t wait to see you on 14th and celebrate with you. ❤️</p>
+        <p id="hidden-no-thank-you-message" class="hidden-no-thank-you-message">Don't you dare press it again, i'll haunt you for the rest of your life. So if you don't want that, press the other button, unless you know, you're into being haunted. 😔 But I still love you! ❤️</p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const images = document.querySelectorAll(".fade-in");
+            const message = document.querySelector(".message");
+            const button = document.querySelector(".valentine-btn");
+            const noThankYouButton = document.querySelector(".no-thank-you-btn");
+            
+            images.forEach((img, index) => {
+                setTimeout(() => {
+                    img.classList.add("show");
+                }, index * 500);
+            });
+            
+            setTimeout(() => {
+                message.classList.add("show");
+                button.classList.add("show");
+                noThankYouButton.classList.add("show");
+            }, images.length * 500);
+        });
+        
+        function showSurprise() {
+            document.getElementById("hidden-message").style.display = "block";
+        }
+
+        function showNoThankYouMessage() {
+            document.getElementById("hidden-no-thank-you-message").style.display = "block";
+        }
+    </script>
+</body>
+</html>
